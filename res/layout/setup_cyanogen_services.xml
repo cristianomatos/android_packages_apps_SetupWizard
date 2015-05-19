@@ -37,9 +37,9 @@
                 android:layout_height="match_parent"
                 style="@style/PageContent">
 
-                <!-- The caption about privacy policy -->
+                <!-- The caption about crDroid general info -->
                 <TextView
-                    android:id="@+id/privacy_policy"
+                    android:id="@+id/general_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
@@ -47,7 +47,7 @@
                     android:paddingLeft="@dimen/content_margin_left"
                     android:paddingRight="@dimen/content_margin_right"
                     style="@style/PageSummaryText"
-                    android:text="@string/services_explanation"
+                    android:text="@string/general_explanation"
                     android:clickable="true"/>
 
                 <LinearLayout
@@ -103,7 +103,7 @@
                 </LinearLayout>
 
                 <!-- Whether or not to enable metrics -->
-                <LinearLayout
+                <!--<LinearLayout
                     android:id="@+id/metrics"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -136,7 +136,7 @@
                         android:paddingBottom="@dimen/content_margin_bottom"
                         android:text="@string/services_metrics_label"/>
 
-                </LinearLayout>
+                </LinearLayout>-->
 
                 <!-- Whether or not to enable default theme -->
                 <LinearLayout

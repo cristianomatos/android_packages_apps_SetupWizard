@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="setup_crdroid_services">crDroid features</string>
+    <string name="general_info">General info</string>
+    <string name="general_explanation" product="tablet">These services work for you to extend the capabilities of your tablet. We from crDroid want to thanks CyanogenMod Team for all the features under</string>
+    <string name="general_explanation" product="default">These services work for you to extend the capabilities of your phone. We from crDroid want to thanks CyanogenMod Team for all the features under</string>
+
+</resources>
