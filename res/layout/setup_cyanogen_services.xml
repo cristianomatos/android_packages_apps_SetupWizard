@@ -37,9 +37,9 @@
                 android:layout_height="match_parent"
                 style="@style/PageContent">
 
-                <!-- The caption about crDroid general info -->
+                <!-- The caption about crDroid -->
                 <TextView
-                    android:id="@+id/general_info"
+                    android:id="@+id/crdroid_community"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"

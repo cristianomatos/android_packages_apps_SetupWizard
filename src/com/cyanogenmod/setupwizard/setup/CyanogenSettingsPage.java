@@ -68,7 +68,7 @@ public class CyanogenSettingsPage extends SetupPage {
     public static final String KEY_APPLY_DEFAULT_THEME = "apply_default_theme";
 
     //public static final String SETTING_METRICS = "settings.cyanogen.allow_metrics";
-    //public static final String PRIVACY_POLICY_URI = "https://cyngn.com/oobe-legal?hideHeader=1";
+    public static final String CRDROID_COMMUNITY_URI = "https://plus.google.com/communities/118297646046960923906?utm_source=chrome_ntp_icon&utm_medium=chrome_app&utm_campaign=chrome";
 
     private static final String WHISPERPUSH_PACKAGE = "org.whispersystems.whisperpush";
 
@@ -282,14 +282,14 @@ public class CyanogenSettingsPage extends SetupPage {
         @Override
         protected void initializePage() {
 
-            String general_info = getString(R.string.general_info);
-            String generalInfoSummary = getString(R.string.general_explanation, general_info);
-            SpannableString ss = new SpannableString(generalInfoSummary);
-            /*ClickableSpan clickableSpan = new ClickableSpan() {
+            String crdroid_community = getString(R.string.crdroid_community);
+            String crdroidSummary = getString(R.string.general_explanation, crdroid_community);
+            SpannableString ss = new SpannableString(crdroidSummary);
+            ClickableSpan clickableSpan = new ClickableSpan() {
                 @Override
                 public void onClick(View textView) {
                     final Intent intent = new Intent(SetupWizardApp.ACTION_VIEW_LEGAL);
-                    intent.setData(Uri.parse(PRIVACY_POLICY_URI));
+                    intent.setData(Uri.parse(CRDROID_COMMUNITY_URI));
                     try {
                         getActivity().startActivity(intent);
                     } catch (Exception e) {
@@ -298,11 +298,11 @@ public class CyanogenSettingsPage extends SetupPage {
                 }
             };
             ss.setSpan(clickableSpan,
-                    generalInfoSummary.length() - general_info.length() - 1,
-                    generalInfoSummary.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);*/
-            TextView generalInfo = (TextView) mRootView.findViewById(R.id.general_info);
-            generalInfo.setMovementMethod(LinkMovementMethod.getInstance());
-            generalInfo.setText(ss);
+                    crdroidSummary.length() - crdroid_community.length() - 1,
+                    crdroidSummary.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            TextView privacyPolicy = (TextView) mRootView.findViewById(R.id.crdroid_community);
+            privacyPolicy.setMovementMethod(LinkMovementMethod.getInstance());
+            privacyPolicy.setText(ss);
 
             mKillSwitchView = mRootView.findViewById(R.id.killswitch);
             mKillSwitchTitle = (TextView)mRootView.findViewById(R.id.killswitch_title);
