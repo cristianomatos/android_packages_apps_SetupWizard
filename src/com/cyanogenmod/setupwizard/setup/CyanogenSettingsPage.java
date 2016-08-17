@@ -33,9 +33,7 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
-import android.view.IWindowManager;
 import android.view.View;
-import android.view.WindowManagerGlobal;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -289,19 +287,15 @@ public class CyanogenSettingsPage extends SetupPage {
             mNavKeysRow = mRootView.findViewById(R.id.nav_keys);
             mNavKeysRow.setOnClickListener(mNavKeysClickListener);
             mNavKeys = (CheckBox) mRootView.findViewById(R.id.nav_keys_checkbox);
-            boolean needsNavBar = true;
-            try {
-                IWindowManager windowManager = WindowManagerGlobal.getWindowManagerService();
-                needsNavBar = windowManager.needsNavigationBar();
-            } catch (RemoteException e) {
-            }
-            mHideNavKeysRow = hideKeyDisabler(getActivity());
-            if (mHideNavKeysRow || needsNavBar) {
+            // Internal bool to check if the device have a navbar by default or not!
+            boolean hasNavBarByDefault = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+            boolean enabled = CMSettings.Global.getInt(getActivity().getContentResolver(),
+                CMSettings.Global.DEV_FORCE_SHOW_NAVBAR, hasNavBarByDefault ? 1 : 0) == 1;
+            if (hasNavBarByDefault) {
                 mNavKeysRow.setVisibility(View.GONE);
             } else {
-                boolean navKeysDisabled =
-                        isKeyDisablerActive(getActivity());
-                mNavKeys.setChecked(navKeysDisabled);
+                mNavKeys.setChecked(enabled);
             }
         }
 
